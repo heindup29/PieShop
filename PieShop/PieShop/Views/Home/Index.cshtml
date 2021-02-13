@@ -1,0 +1,27 @@
+﻿@model IEnumerable<PieShop.Core.Pie>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Pie Shop</h1>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+        @foreach (var pie in Model)
+        {
+            <tr>
+                <td>@pie.Name</td>
+                <td>@pie.Category</td>
+                <td>@pie.Price</td>
+                <td>@pie.Description</td>
+                <td><a asp-controller="Description" asp-action="Info" asp-route-id="@pie.Id">Info</a></td>
+            </tr>
+        }
+    </table>
+</div>
